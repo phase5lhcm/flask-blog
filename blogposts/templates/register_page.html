@@ -1,0 +1,50 @@
+{% extends 'layout.html'%} {%block title%} Register Page {%endblock%} {% block
+content%}
+
+<h1>Register Form</h1>
+
+<form id="register-form">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Username</label>
+        <input
+            type="text"
+            class="form-control"
+            id="exampleInputUsername"
+            aria-describedby="usernameHelp"
+            placeholder="Enter Username"
+        />
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email Address</label>
+        <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter Email Address"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+        >
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+        />
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPasswordConfirmation">Confirm Password</label>
+        <input
+            type="password"
+            class="form-control"
+            id="exampleInputPasswordConfirmation"
+            placeholder="Confirm Password"
+        />
+    </div>
+    <button type="submit" id="submitBtn" class="btn">Submit</button>
+</form>
+{%endblock%}
