@@ -62,16 +62,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Account</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#"
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}"
                             >Logout</a
                         >
-                    </li> -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('add_blog')}}"
+                            >Add Content</a
+                        >
+                    </li>
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{{url_for('login')}}"
+                            >Login</a
+                        >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('register')}}"
