@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+:root {
+    --main-bg-color: #edc7b7;
+    --bg-light: #eee2dc;
+    --bg-dark: #000000;
+    --main-shadow: #ffac1c;
+    --hover-light: #fff;
+    --main-bg: #ac3b69;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: var(--main-bg-color);
+}
+
+#header-register {
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    transition-duration: 0.4s;
+}
+#header-register:hover {
+    background-color: var(--main-shadow);
+    color: var(--hover-light);
+}
+
+#register-form {
+    position: relative;
+    top: 6rem;
+    width: 50vw;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 10px var(--main-shadow);
+    background-color: var(--bg-light);
+    border-radius: 30px;
+    color: var(--bg-dark);
+    padding: 2em;
+}
+
+.submit-btn-register {
+    margin-top: 2em;
+    padding: 1em;
+    border-radius: 30px;
+    background-color: var(--main-bg);
+    transition-duration: 0.4s;
+    position: relative;
+    left: 28em;
+    border: none;
+}
+.submit-btn-register:hover {
+    background-color: var(--main-shadow);
+    color: (--bg-light);
+}
+.form-control {
+    border-radius: 8px;
+    padding: 0.4rem;
+    box-shadow: 1px 2px var(--main-shadow);
+}

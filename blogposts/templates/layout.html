@@ -12,7 +12,10 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
         />
-
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles/registerStyles.css') }}"
+        />
         <title>{% block title%}{%endblock%}</title>
     </head>
     <body>
@@ -34,26 +37,76 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"
+                        <a class="nav-link" href="{{url_for('home')}}"
                             >Home <span class="sr-only">(current)</span></a
                         >
                     </li>
+                </ul>
+                {% if current_user.is_authenticated %}
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a
+                            class="nav-link"
+                            style="color: yellow; font-weight: bold"
+                        >
+                            <i class="fas fa-coins"></i>
+                            {{current_user.budget}}
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="#"
+                            >Welcome back,{{current_user.username}}</a
+                        >
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Account</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}"
+                            >Logout</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('add_blog')}}"
+                            >Add Content</a
+                        >
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('login')}}"
+                            >Login</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('register')}}"
+                            >Register</a
+                        >
+                    </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li> -->
+                    {% endif %}
                 </ul>
             </div>
         </nav>
+        {% with messages = get_flashed_messages(with_categories=true)%} {% if
+        messages%} {% for category, message in messages %}
+        <div class="alert alert-{{category}} flashes">
+            <button
+                type="button"
+                class="m1-2 mb-1 close"
+                data-dismiss="alert"
+                aria-label="Close"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{message}}
+        </div>
+        {%endfor%} {% endif %} {% endwith %} {%block content%} {% endblock %}
+        <!--Content goes here-->
 
         <!-- Use option 2 as option 1 bundle does not trigger modal  -->
         <script

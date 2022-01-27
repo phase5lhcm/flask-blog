@@ -2,8 +2,7 @@
 content%}
 <body class="text-center">
     <div class="container">
-        <h2>Login Form goes here</h2>
-        <!-- <form method="POST" class="form-signin" style="color: white">
+        <form method="POST" class="form-signin" style="color: white">
             {{form.hidden_tag()}}
             <img src="" alt="" />
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>
@@ -15,13 +14,13 @@ content%}
             <div class="checkbox mb-3">
                 <h6>Can't login?</h6>
                 <a
-                    href="{{url_for('register_page')}}"
+                    href="{{url_for('register')}}"
                     class="btn btn-sm btn-secondary"
                     >Sign Up For an Account</a
                 >
             </div>
-            {{form.loginBtn(class="btn btn-lg btn-block btn-primary")}}
-        </form> -->
+            {{form.submit_btn_login(class="btn btn-lg btn-block btn-primary")}}
+        </form>
     </div>
 </body>
 {%endblock %}
