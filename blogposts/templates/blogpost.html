@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} {% block title%} Home Page {% endblock%} {% block
+    {% extends 'layout.html' %} {% block title%} Home Page {% endblock%} {% block
+content%}
+
+<h1>Blogposts</h1>
+<br />
+
+<h2>{{blogpost.title}}</h2>
+{{blogpost.description}} <br />
+{{blogpost.content}} <br />
+{{blogpost.date_posted}} <br />
+
+<a href="{{url_for('blogposts')}}"> Back</a>
+{%endblock%}

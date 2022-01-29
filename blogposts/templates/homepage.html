@@ -1,8 +1,14 @@
 {% extends 'layout.html' %} {% block title%} Home Page {% endblock%} {% block
 content%}
 
-<div>
-    <p>This is the homepage</p>
+<div id="container-homepage">
+    <img
+        src="{{url_for('static', filename='assets/homepage_img.jpeg')}}"
+        alt="background-image"
+        ,
+        width="100%"
+    />
+    <p id="text">Some text</p>
 </div>
 
 {%endblock%}

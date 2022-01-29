@@ -1,0 +1,11 @@
+/* blogposts/static/assets/homepage_img.jpeg */
+#container-homepage {
+    color: white;
+}
+#text {
+    position: absolute;
+    bottom: 0;
+    left: 0.5em;
+    width: 400px;
+    font-weight: bold;
+}

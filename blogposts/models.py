@@ -2,7 +2,7 @@ from email.policy import default
 from flask_sqlalchemy import SQLAlchemy
 from blogposts import db, login_manager
 from blogposts import bcrypt
-from datetime import date, datetime
+from datetime import datetime
 from flask_login import UserMixin
 
 @login_manager.user_loader
@@ -23,16 +23,7 @@ class Blog(db.Model):
 
     def __repr__(self):
         return '<Blog Post Title %r>' % self.title
-    
-    # @property
-    # def seriialize(self):
-    #     return{
-    #     'id':self.id,
-    #     'title': self.title,
-    #     'content':self.content,
-    #     'featured_img': self.featured_img,
-    #     'date_posted' : self.date_posted
-    #     }
+
 
 
 

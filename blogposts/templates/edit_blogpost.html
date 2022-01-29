@@ -1,0 +1,23 @@
+{% extends 'layout.html' %} {% block title%} Home Page {% endblock%} {% block
+content%}
+
+<h1>edit Blogposts</h1>
+<br />
+
+<div class="container">
+    <p>form</p>
+    <form method="POST">
+        <h3 id="header-register">Sign In</h3>
+        {{form.hidden_tag()}} {{form.title.label()}}
+        {{form.title(class="form-control", placeholder="Title")}}
+        {{form.description.label()}} {{form.description(class="form-control",
+        placeholder="Description")}} {{form.slug.label()}}
+        {{form.slug(class="blog-slug form-control", placeholder="Slug")}}
+        {{form.content.label()}} {{form.content(class="form-control", rows=5)}}
+        {{form.submit_btn_blog(class="btn btn-lg btn-block btn-primary
+        submit-btn-blog")}}
+    </form>
+</div>
+
+<a href="{{url_for('blogposts')}}"> Back</a>
+{%endblock%}

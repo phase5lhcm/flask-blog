@@ -1,8 +1,6 @@
-from crypt import methods
 from blogposts import app
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user
-from urllib import request
 from blogposts.models import Blog, User
 from blogposts import db
 from blogposts.forms import RegisterForm, LoginForm, BlogForm
@@ -61,7 +59,7 @@ def logout():
 @app.route('/add_blog', methods=['GET','POST'])
 def add_blog():
     form = BlogForm()
-    print(f"Blog form: {form.__dict__}")
+    # print(f"Blog form: {form.__dict__}")
     if form.validate_on_submit():
         blog_post = Blog(title=form.title.data, 
                             description = form.description.data, 
@@ -80,7 +78,54 @@ def add_blog():
     if form.errors != {}:
         for err_msg in form.errors.values():
             flash(f'Error posting blog: {err_msg}', category='danger')
-    return render_template('blog_posts.html', form = form)
+    return render_template('add_blog_posts.html', form = form)
+
+#get all posts
+@app.route('/blogposts')
+def blogposts():
+    blogposts = Blog.query.order_by(Blog.date_posted)
+    return render_template('blogposts.html', blogposts=blogposts)
+
+#get single post
+@app.route('/blogposts/<int:id>')
+def blogpost(id):
+    blogpost = Blog.query.get_or_404(id)
+    return render_template('blogpost.html', blogpost=blogpost)
+
+@app.route('/edit-blogpost/<int:id>', methods=['GET', 'POST']) # page does not redirect to edit_blogpost.html
+def edit_blogpost(id):
+    form = BlogForm()
+    # form is accessible
+    print(f"form fields {form.__dict__}")
+    #blogpost can be found with both queries
+    # but I do not know if one query is more suitable over the other
+    blogpost = Blog.query.get_or_404(id)
+    # blogpost = Blog.query.filter_by(id = Blog.id).first()
+
+    #blogpost is accessible
+    print(f"blogposts: {blogpost}")
+
+    #Error thrown here.
+    # Form is NOT validating, can the conditional be changed to 
+    # check for request method instead?
+    if form.validate_on_submit:
+        blogpost.title = form.title.data
+        blogpost.description = form.description.data
+        blogpost.content = form.content.data # error says that NULL constraint fails here
+        blogpost.slug = form.slug.data
+        db.session.add(blogpost)
+        db.session.commit() # error on line 117
+        flash("Update successful")
+        return redirect(url_for('blogpost', id=blogpost.id))
+    if form.errors != {}:
+        for err_msg in form.errors.values():
+            flash(f'Error updating blog: {err_msg}', category='danger')
+    form.title.data = blogpost.title
+    form.description.data = blogpost.description
+    form.content.data = blogpost.content
+    form.slug.data = blogpost.slug
+    return render_template('edit_blogpost.html', form=form)
+ 
    
 
 
