@@ -1,3 +1,4 @@
+from crypt import methods
 from blogposts import app
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user
@@ -90,6 +91,7 @@ def blogposts():
 @app.route('/blogposts/<int:id>')
 def blogpost(id):
     blogpost = Blog.query.get_or_404(id)
+    print({blogpost})
     return render_template('blogpost.html', blogpost=blogpost)
 
 @app.route('/edit-blogpost/<int:id>', methods=['GET', 'POST']) # page does not redirect to edit_blogpost.html
@@ -127,5 +129,18 @@ def edit_blogpost(id):
     return render_template('edit_blogpost.html', form=form)
  
    
+@app.route('/delete_blog/<int:id>', methods=['GET', 'DELETE'])
+def delete_blog(id):
+    delete_blog = Blog.query.get_or_404(id)
+    try:
+        db.session.delete(delete_blog)
+        db.session.commit()
+        flash("Delete Successful")
+        blogposts = Blog.query.order_by(Blog.date_posted)
+        return render_template('blogposts.html', blogposts=blogposts)
+    except:
+        flash("Unable to delete")
+        blogposts = Blog.query.order_by(Blog.date_posted)
+        return render_template('blogposts.html', blogposts=blogposts)
 
 

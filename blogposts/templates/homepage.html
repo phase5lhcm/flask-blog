@@ -2,13 +2,63 @@
 content%}
 
 <div id="container-homepage">
-    <img
-        src="{{url_for('static', filename='assets/homepage_img.jpeg')}}"
-        alt="background-image"
-        ,
-        width="100%"
-    />
-    <p id="text">Some text</p>
+    <h1>Dev Share</h1>
+    <div id="cards">
+        <div id="card-main">
+            <div class="card" style="width: 26rem">
+                <img
+                    class="card-img-top card-main-img"
+                    src="{{url_for('static',
+        filename='assets/homepage_img.jpeg')}}"
+                    alt="Card image cap"
+                />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="card-feature">
+            <div id="card1" class="card" style="width: 12rem">
+                <img
+                    class="card-img-top card-feature-img"
+                    src="{{url_for('static',
+        filename='assets/homepage_img.jpeg')}}"
+                    alt="Card image cap"
+                />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 12rem">
+                <img
+                    class="card-img-top card-feature-img"
+                    src="{{url_for('static',
+        filename='assets/homepage_img.jpeg')}}"
+                    alt="Card image cap"
+                />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {%endblock%}

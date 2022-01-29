@@ -1,18 +1,36 @@
 {% extends 'layout.html' %} {% block title%} Home Page {% endblock%} {% block
 content%}
 
+<style>
+    .fa-times {
+        position: relative;
+        left: 16rem;
+    }
+</style>
+
 <h1>Blogposts</h1>
 <br />
 
 {% for blogpost in blogposts%}
 
-<h2>
-    <a href="{{url_for('blogpost', id=blogpost.id)}}"> {{blogpost.title}} </a>
-</h2>
-{{blogpost.description}} <br />
-{{blogpost.content}} <br />
-{{blogpost.date_posted}} <br />
+<div class="card" style="width: 18rem">
+    <a href="{{url_for('delete_blog', id=blogpost.id)}}">
+        <i class="fas fa-times"></i
+    ></a>
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="{{url_for('blogpost', id=blogpost.id)}}">
+                {{blogpost.title}}
+            </a>
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{blogpost.description}}</h6>
+        {{blogpost.date_posted}} <br />
+        <a href="{{url_for('blogpost', id=blogpost.id)}}">View Post</a>
+        <a href="{{url_for('edit_blogpost', id=blogpost.id)}}">Edit Post</a>
+    </div>
+</div>
 
-<a href="{{url_for('blogpost', id=blogpost.id)}}">View Post</a>
-<a href="{{url_for('edit_blogpost', id=blogpost.id)}}">Edit Post</a>
+<h2></h2>
+<br />
+
 {%endfor%} {%endblock%} <br />
