@@ -16,17 +16,20 @@ body {
     /* background-color: var(--main-bg-color); */
 }
 
-#header-register {
+#header-register,
+#header-login {
     text-align: center;
     font-family: 'Fjalla One', sans-serif;
     transition-duration: 0.4s;
 }
-#header-register:hover {
+#header-register:hover,
+#header-login:hover {
     background-color: var(--main-shadow);
     color: var(--hover-light);
 }
 
-#register-form {
+#register-form,
+#login-form {
     position: relative;
     top: 6rem;
     width: 50vw;
@@ -38,7 +41,8 @@ body {
     padding: 2em;
 }
 
-.submit-btn-register {
+.submit-btn-register,
+.submit-btn-login {
     margin-top: 2em;
     padding: 1em;
     border-radius: 30px;
@@ -48,7 +52,8 @@ body {
     left: 28em;
     border: none;
 }
-.submit-btn-register:hover {
+.submit-btn-register:hover,
+.submit-btn-login:hover {
     background-color: var(--main-shadow);
     color: (--bg-light);
 }

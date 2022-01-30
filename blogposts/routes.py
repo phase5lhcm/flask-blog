@@ -61,6 +61,30 @@ def logout():
     flash("Logout successful", category="info")
     return redirect(url_for('home'))
 
+@app.route("/update/user/<int:id>", methods=['GET', 'POST'])
+def update_user(id):
+    form = RegisterForm()
+    update_user = User.query.get_or_404(id)
+    if request.method == "POST":
+        update_user.username = request.form['username']
+        update_user.introduction = request.form['introduction']
+        update_user.email = request.form['email']
+        try:
+            db.session.commit()
+            flash("Account successfully updated")
+            return render_template('update_account.html', 
+            form=form, update_user=update_user)
+        except:
+            flash("Unable to update account")
+            return render_template("update_account.html", 
+            form=form, update_user=update_user)
+    else:
+        return render_template("update_account.html", 
+        form=form, update_user=update_user)
+
+
+
+
 @app.route('/add_blog', methods=['GET','POST'])
 @login_required
 def add_blog():

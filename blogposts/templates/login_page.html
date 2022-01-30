@@ -1,32 +1,21 @@
 {% extends 'layout.html' %} {% block title%} Login page {% endblock%} {%block
 content%}
-<body>
-    <div class="left split">
-        <img
-            src="{{url_for('static',
-        filename='assets/login_page_img.jpeg')}}"
-            alt=""
-        />
+
+<form method="POST" id="login-form">
+    <h3 id="header-login">Sign In</h3>
+    {{form.hidden_tag()}}
+    <br />
+    {{form.email.label()}} {{form.email(class="form-control",
+    placeholder="Email")}} {{form.password.label()}}
+    {{form.password(class="form-control", placeholder="Password")}}
+    <br />
+    <div class="checkbox mb-3">
+        <h6>Can't login?</h6>
+        <a href="{{url_for('register')}}" class="btn btn-sm btn-secondary"
+            >Sign Up For an Account</a
+        >
     </div>
-    <div class="right split">
-        <form method="POST" class="form-signin" style="color: white">
-            {{form.hidden_tag()}}
-            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-            <br />
-            {{form.email.label()}} {{form.email(class="form-control",
-            placeholder="Email")}} {{form.password.label()}}
-            {{form.password(class="form-control", placeholder="Password")}}
-            <br />
-            <div class="checkbox mb-3">
-                <h6>Can't login?</h6>
-                <a
-                    href="{{url_for('register')}}"
-                    class="btn btn-sm btn-secondary"
-                    >Sign Up For an Account</a
-                >
-            </div>
-            {{form.submit_btn_login(class="btn btn-lg btn-block btn-primary")}}
-        </form>
-    </div>
-</body>
+    {{form.submit_btn_login(class="btn btn-lg btn-block btn-primary")}}
+</form>
+
 {%endblock %}

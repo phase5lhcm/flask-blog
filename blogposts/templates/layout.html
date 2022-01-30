@@ -22,7 +22,7 @@
         />
         <link
             rel="stylesheet"
-            href="{{ url_for('static', filename='styles/registerStyles.css') }}"
+            href="{{ url_for('static', filename='styles/user_form_styles.css') }}"
         />
         <link
             rel="stylesheet"
@@ -79,11 +79,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('user_account')}}"
-                            >Account</a
-                        >
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{url_for('logout')}}"
                             >Logout</a
                         >
@@ -103,9 +98,16 @@
                             >Uploads</a
                         >
                     </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="{{url_for('update_user', id=current_user.id)}}"
+                            >Update Account</a
+                        >
+                    </li>
                 </ul>
+                {% else %}
                 <ul class="navbar-nav mr-auto">
-                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('login')}}"
                             >Login</a
@@ -116,11 +118,13 @@
                             >Register</a
                         >
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li> -->
-                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('user_account')}}"
+                            >Account</a
+                        >
+                    </li>
                 </ul>
+                {% endif %}
             </div>
         </nav>
         {% with messages = get_flashed_messages(with_categories=true)%} {% if

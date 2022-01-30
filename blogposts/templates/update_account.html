@@ -1,0 +1,22 @@
+{% extends 'layout.html'%} {%block title%} Update Account Page {%endblock%} {%
+block content%}
+
+<div class="container">
+    <form
+        id="register-form"
+        action="/update/user/{{update_user.id}}"
+        method="POST"
+    >
+        <h3 id="header-register">Update Account</h3>
+        {{form.hidden_tag()}} {{form.username.label()}}
+        {{form.username(class="form-control", value=update_user.username)}}
+        {{form.email.label()}} {{form.email(class="form-control",
+        value=update_user.email)}} {{form.introduction.label()}}
+        {{form.introduction(class="form-control",
+        value=update_user.introduction, rows=2)}}
+        {{form.submit_btn_register(class="btn btn-lg btn-block btn-primary
+        submit-btn-register")}}
+    </form>
+</div>
+
+{%endblock%}
