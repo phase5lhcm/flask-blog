@@ -28,6 +28,18 @@
             rel="stylesheet"
             href="{{ url_for('static', filename='styles/homepage_styles.css') }}"
         />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles/user_account_styles.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles/layout_styles.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles/blog_posts_styles.css') }}"
+        />
         <title>{% block title%}{%endblock%}</title>
     </head>
     <body>
@@ -49,20 +61,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{url_for('home')}}"
-                            >Home <span class="sr-only">(current)</span></a
-                        >
+                        <a class="nav-link" href="{{url_for('home')}}">Home </a>
                     </li>
                 </ul>
                 {% if current_user.is_authenticated %}
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            style="color: yellow; font-weight: bold"
-                        >
-                            <i class="fas fa-coins"></i>
-                            {{current_user.budget}}
+                        <a class="nav-link">
+                            <i class="fas fa-blog"></i>
+                            {{current_user.free_posts}}
                         </a>
                     </li>
                     <li class="nav-item">
@@ -72,7 +79,9 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link" href="{{url_for('user_account')}}"
+                            >Account</a
+                        >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('logout')}}"
@@ -87,6 +96,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('blogposts')}}"
                             >Blogposts</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('img_upload')}}"
+                            >Uploads</a
                         >
                     </li>
                 </ul>

@@ -1,4 +1,5 @@
 from email.policy import default
+import mimetypes
 from flask_sqlalchemy import SQLAlchemy
 from blogposts import db, login_manager
 from blogposts import bcrypt
@@ -31,6 +32,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    introduction = db.Column(db.Text())
     password_hash = db.Column(db.String(length=8),nullable=False)
     free_posts = db.Column(db.Integer(), nullable=False,default=5)
     blog_posts = db.relationship('Blog', backref='blog_author', lazy=True)
@@ -47,4 +49,10 @@ class User(db.Model, UserMixin):
         #let's override what is stored in password_hash field
          self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
          return True
+
+class Image(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    img = db.Column(db.Text)
+    name = db.Column(db.Text, nullable=False)
+    mimetype = db.Column(db.Text, nullable=False)
 

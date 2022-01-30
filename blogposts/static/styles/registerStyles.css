@@ -52,8 +52,3 @@ body {
     background-color: var(--main-shadow);
     color: (--bg-light);
 }
-.form-control {
-    border-radius: 8px;
-    padding: 0.4rem;
-    box-shadow: 1px 2px var(--main-shadow);
-}

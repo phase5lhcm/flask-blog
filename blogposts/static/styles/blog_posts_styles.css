@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+:root {
+    --main-bg-color: #edc7b7;
+    --bg-light: #eee2dc;
+    --bg-dark: #000000;
+    --main-shadow: #e8e8e8;
+    --hover-light: #fff;
+    --main-bg: #ac3b69;
+}
+#blogpost-container {
+    position: relative;
+    left: 28rem;
+    border-radius: 30px;
+    color: var(--main-bg);
+    padding: 2em;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.blog-card {
+    background-color: #f0f0f0;
+}
+.fa-times {
+    position: relative;
+    left: 23rem;
+}
+
+#card-links {
+    margin-top: 2rem;
+}
+
+.blogpost-link,
+.blogpost-header {
+    list-style: none;
+    text-decoration: none;
+}
+
+.blogpost-link:hover,
+.blogpost-header:hover {
+    background-color: #a9a9a9;
+    transition: 1s;
+}
+
+.blogpost-link {
+    padding: 1rem;
+}

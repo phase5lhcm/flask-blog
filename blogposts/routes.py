@@ -1,10 +1,13 @@
 from crypt import methods
+import mimetypes
+from unicodedata import name
 from blogposts import app
 from flask import render_template, flash, redirect, url_for, request
-from flask_login import login_user, current_user, logout_user
-from blogposts.models import Blog, User
+from werkzeug.utils import secure_filename
+from flask_login import login_user, current_user, logout_user, login_required
+from blogposts.models import Blog, User, Image
 from blogposts import db
-from blogposts.forms import RegisterForm, LoginForm, BlogForm
+from blogposts.forms import ImageForm, RegisterForm, LoginForm, BlogForm, ImageForm
 #TODO - add logging info to file when used in production
 import logging
 logging.basicConfig(level=logging.DEBUG)
@@ -21,6 +24,7 @@ def register():
         print("true")
         new_user = User(username=form.username.data, 
                            email=form.email.data, 
+                           introduction=form.introduction.data,
                            password=form.password.data)
         db.session.add(new_user)
         db.session.commit()
@@ -58,6 +62,7 @@ def logout():
     return redirect(url_for('home'))
 
 @app.route('/add_blog', methods=['GET','POST'])
+@login_required
 def add_blog():
     form = BlogForm()
     # print(f"Blog form: {form.__dict__}")
@@ -143,4 +148,29 @@ def delete_blog(id):
         blogposts = Blog.query.order_by(Blog.date_posted)
         return render_template('blogposts.html', blogposts=blogposts)
 
+@app.route('/user/account/', methods=['GET', 'POST'])
+@login_required
+def user_account():
+    return render_template('user_account.html')
+
+@app.route('/upload-img/', methods=['GET','POST'])
+def img_upload():
+    form = ImageForm()
+    # print(f"form: {form.__dict__}")
+    if request.method == 'POST':
+        print("post request")
+        file = request.files['file']
+        print(f'img found: {file}')
+        if not file:
+            flash("Please upload an image")
+
+        filename = secure_filename(file.filename) 
+        mimetype = file.mimetype
+        img = Image(img =file.read(),mimetype=mimetype,name=filename)
+        db.session.add(img)
+        db.session.commit()
+        flash('Image has been uploaded successfully')
+        return redirect(url_for('img_upload', name=filename))
+    return render_template('upload_photo.html', form=form)
+    
 

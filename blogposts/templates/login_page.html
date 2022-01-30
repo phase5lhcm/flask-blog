@@ -1,10 +1,16 @@
-{% extends 'layout.html' %} {% block title%} Login {% endblock%} {%block
+{% extends 'layout.html' %} {% block title%} Login page {% endblock%} {%block
 content%}
-<body class="text-center">
-    <div class="container">
+<body>
+    <div class="left split">
+        <img
+            src="{{url_for('static',
+        filename='assets/login_page_img.jpeg')}}"
+            alt=""
+        />
+    </div>
+    <div class="right split">
         <form method="POST" class="form-signin" style="color: white">
             {{form.hidden_tag()}}
-            <img src="" alt="" />
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>
             <br />
             {{form.email.label()}} {{form.email(class="form-control",

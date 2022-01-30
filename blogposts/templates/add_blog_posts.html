@@ -1,9 +1,14 @@
 {% extends 'layout.html'%} {%block title%} Register Page {%endblock%} {% block
 content%}
 
+<style>
+    body {
+        background-image:url({{url_for('static', filename='assets/abstract-background.jpeg')}})
+</style>
+
 <div class="container">
     <form id="add-blog-form" method="POST">
-        <h3 id="header-register">Sign In</h3>
+        <h3 id="header-register">Post your blog!</h3>
         {{form.hidden_tag()}} {{form.title.label()}}
         {{form.title(class="form-control", placeholder="Title")}}
         {{form.description.label()}} {{form.description(class="form-control",

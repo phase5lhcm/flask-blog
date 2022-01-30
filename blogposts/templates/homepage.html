@@ -1,4 +1,4 @@
-{% extends 'layout.html' %} {% block title%} Home Page {% endblock%} {% block
+{% extends 'layout.html' %} {% block title%} Homepage {% endblock%} {% block
 content%}
 
 <div id="container-homepage">
@@ -25,12 +25,6 @@ content%}
 
         <div id="card-feature">
             <div id="card1" class="card" style="width: 12rem">
-                <img
-                    class="card-img-top card-feature-img"
-                    src="{{url_for('static',
-        filename='assets/homepage_img.jpeg')}}"
-                    alt="Card image cap"
-                />
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">
@@ -42,13 +36,7 @@ content%}
             </div>
 
             <div class="card" style="width: 12rem">
-                <img
-                    class="card-img-top card-feature-img"
-                    src="{{url_for('static',
-        filename='assets/homepage_img.jpeg')}}"
-                    alt="Card image cap"
-                />
-                <div class="card-body">
+                <div id="card2" class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">
                         Some quick example text to build on the card title and
