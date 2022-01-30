@@ -18,6 +18,7 @@ class RegisterForm(FlaskForm):
         
     username = StringField(label='Username', validators=[Length(min=2, max=20), DataRequired()])
     email = StringField(label='Email', validators=[Email(message="Email required"), DataRequired()])
+    introduction = StringField(label='Introduction', validators=[DataRequired()], widget=TextArea())
     password = PasswordField(label='Password', validators=[Length(min=6), DataRequired()])
     password_confirmation = PasswordField(label='Confirm password', validators=[EqualTo('password'), DataRequired()])
     submit_btn_register = SubmitField(label='Create Account')
@@ -35,4 +36,8 @@ class BlogForm(FlaskForm):
     content = StringField("Content", validators=[DataRequired()], widget=TextArea())
     slug = StringField("Slug", validators=[DataRequired()])
     submit_btn_blog = SubmitField(label='Post blog')
+
+class ImageForm(FlaskForm):     
+    name = StringField(label='Title', validators=[ DataRequired()])
+    submit_btn_img = SubmitField(label='Submit')
 

@@ -3,11 +3,13 @@ content%}
 
 <div class="container">
     <form id="register-form" method="POST">
-        <h3 id="header-register">Sign In</h3>
+        <h3 id="header-register">Register</h3>
         {{form.hidden_tag()}} {{form.username.label()}}
         {{form.username(class="form-control", placeholder="Username")}}
         {{form.email.label()}} {{form.email(class="form-control",
-        placeholder="Email")}} {{form.password.label()}}
+        placeholder="Email")}} {{form.introduction.label()}}
+        {{form.introduction(class="form-control", placeholder="Introduction",
+        rows=2)}} {{form.password.label()}}
         {{form.password(class="form-control", placeholder="Password")}}
         {{form.password_confirmation.label()}}
         {{form.password_confirmation(class="form-control", placeholder="Confirm

@@ -1,0 +1,20 @@
+:root {
+    --main-bg-color: #edc7b7;
+    --bg-light: #eee2dc;
+    --bg-dark: #000000;
+    --main-shadow: #ffac1c;
+    --hover-light: #fff;
+    --main-bg: #ac3b69;
+}
+#container-user-account {
+    position: relative;
+    top: 6rem;
+    width: 50vw;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 10px var(--main-shadow);
+    background-color: var(--bg-light);
+    border-radius: 30px;
+    color: var(--bg-dark);
+    padding: 2em;
+}

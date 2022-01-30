@@ -1,8 +1,12 @@
-{% extends 'layout.html'%} {%block title%} Register Page {%endblock%} {% block
-content%}
+{% extends 'layout.html' %} {% block title%} Edit Your blog {% endblock%} {%
+block content%}
+
+<h1>edit Blogposts</h1>
+<br />
 
 <div class="container">
-    <form id="add-blog-form" method="POST">
+    <p>form</p>
+    <form method="POST">
         <h3 id="header-register">Sign In</h3>
         {{form.hidden_tag()}} {{form.title.label()}}
         {{form.title(class="form-control", placeholder="Title")}}
@@ -15,4 +19,5 @@ content%}
     </form>
 </div>
 
+<a href="{{url_for('blogposts')}}"> Back</a>
 {%endblock%}

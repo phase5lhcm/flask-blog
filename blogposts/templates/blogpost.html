@@ -1,0 +1,20 @@
+{%extends 'layout.html' %} {% block title%} Blosposts {% endblock%} {% block
+content%}
+
+<h1>Blogpost Content</h1>
+<br />
+
+<div class="card" style="width: 18rem">
+    <div class="card-body">
+        <h5 class="card-title">{{blogpost.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{blogpost.description}}</h6>
+        {{blogpost.date_posted}}
+        <p>{{blogpost.content}}</p>
+        <a href="{{url_for('blogposts')}}"> Back</a>
+    </div>
+</div>
+
+<h2></h2>
+<br />
+
+{%endblock%}
