@@ -1,5 +1,3 @@
-from email.policy import default
-import mimetypes
 from flask_sqlalchemy import SQLAlchemy
 from blogposts import db, login_manager
 from blogposts import bcrypt

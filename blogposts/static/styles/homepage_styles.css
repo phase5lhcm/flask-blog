@@ -32,6 +32,7 @@
 #card-feature {
     position: relative;
     left: 20em;
+    text-align: center;
 }
 
 .card-feature-img {

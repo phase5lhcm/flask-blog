@@ -62,10 +62,11 @@ def logout():
     return redirect(url_for('home'))
 
 @app.route("/update/user/<int:id>", methods=['GET', 'POST'])
+@login_required
 def update_user(id):
     form = RegisterForm()
     update_user = User.query.get_or_404(id)
-    if request.method == "POST":
+    if request.method == "POST" and id == current_user.id:
         update_user.username = request.form['username']
         update_user.introduction = request.form['introduction']
         update_user.email = request.form['email']
@@ -197,4 +198,8 @@ def img_upload():
         return redirect(url_for('img_upload', name=filename))
     return render_template('upload_photo.html', form=form)
     
-
+@app.route('/user/profiles', methods=['GET'])
+def user_list():
+   user_accounts = User.query.order_by(User.username).all()
+   return render_template('user_profiles.html', user_accounts=user_accounts )
+   
