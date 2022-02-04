@@ -16,6 +16,15 @@ logging.basicConfig(level=logging.DEBUG)
 def home():
     return render_template('homepage.html')
 
+@app.route("/admin-page")
+def administrator():
+    id = current_user.id
+    if id == 1:
+        return render_template('admin_page.html')
+    else:
+        flash('Not authorized')
+        return redirect(url_for('home'))
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegisterForm()

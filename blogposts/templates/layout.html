@@ -105,6 +105,13 @@
                             >Update Account</a
                         >
                     </li>
+                    {% if current_user.id == 1%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('administrator')}}"
+                            >Settings</a
+                        >
+                    </li>
+                    {% endif%}
                 </ul>
                 {% else %}
                 <ul class="navbar-nav mr-auto">
