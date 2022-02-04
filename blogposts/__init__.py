@@ -2,8 +2,10 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+from flask_ckeditor import CKEditor
 
 app = Flask(__name__)
+ckeditor = CKEditor(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blogposts.db'
 app.config['SECRET_KEY'] = b'u>$\x8b\xd7\x1e\x1a\xcf\xa8k\xa3\x14'
 db = SQLAlchemy(app)

@@ -17,6 +17,7 @@ block content%}
         {{form.submit_btn_blog(class="btn btn-lg btn-block btn-primary
         submit-btn-blog")}}
     </form>
+    {{ ckeditor.load() }} {{ ckeditor.config(name='content') }}
 </div>
 
 <a href="{{url_for('blogposts')}}"> Back</a>

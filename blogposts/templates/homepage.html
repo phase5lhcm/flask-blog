@@ -13,36 +13,46 @@ content%}
                     alt="Card image cap"
                 />
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Welcome to DevShare</h5>
                     <p class="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
+                        At DevShare, Lorem ipsum dolor sit amet. Lorem ipsum
+                        dolor sit amet. Lorem ipsum dolor sit, amet consectetur
+                        adipisicing elit.
                     </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a class="nav-link" href="{{url_for('register')}}"
+                        >Sign Up Now!</a
+                    >
                 </div>
             </div>
         </div>
 
         <div id="card-feature">
-            <div id="card1" class="card" style="width: 12rem">
+            <div id="card1" class="card" style="width: 15rem">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        Share your stories with other developers
+                    </h5>
                     <p class="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Consequuntur perferendis culpa.
                     </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{url_for('blogposts')}}" class="btn">See Posts</a>
                 </div>
             </div>
 
-            <div class="card" style="width: 12rem">
+            <div class="card" style="width: 15rem">
                 <div id="card2" class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <strong
+                        ><h5 class="card-title">Real Experiences</h5></strong
+                    >
                     <p class="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit.
                     </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                    <a class="nav-link" href="{{url_for('user_list')}}"
+                        >DevProfiles</a
+                    >
                 </div>
             </div>
         </div>

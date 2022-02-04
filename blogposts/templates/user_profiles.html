@@ -10,38 +10,27 @@ block content%}
     }
 </style>
 
-<h1>Blogposts</h1>
+<h1>User Profiles</h1>
 <br />
 
-{% for blogpost in blogposts%}
+{% for user_account in user_accounts%}
 
 <div id="blogpost-container">
     <div class="card" style="width: 50rem">
-        <a href="{{url_for('delete_blog', id=blogpost.id)}}">
-            <i class="fas fa-times"></i
-        ></a>
+        <a href="#"> <i class="fas fa-times"></i></a>
         <div class="card-body blog-card">
             <h5 class="card-title">
                 <strong>
-                    <a
-                        href="{{url_for('blogpost', id=blogpost.id)}}"
-                        class="blogpost-header"
-                    >
-                        {{blogpost.title}}
+                    <a href="#" class="blogpost-header">
+                        {{user_account.username}}
                     </a>
                 </strong>
             </h5>
-            <h6>Submitted by: {{blogpost.blog_author.username}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">
-                {{blogpost.description}}
+                {{user_account.introduction}}
             </h6>
-            {{blogpost.date_posted}} <br />
             <div id="card-links">
-                <a
-                    href="{{url_for('blogpost', id=blogpost.id)}}"
-                    class="blogpost-link"
-                    >View Post</a
-                >
+                <a href="#" class="blogpost-link">View Posts</a>
             </div>
         </div>
     </div>
