@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField,SubmitField
 from wtforms.validators import Length, Email, EqualTo, DataRequired, ValidationError
 from wtforms.widgets import TextArea
 from blogposts.models import User
+from flask_ckeditor import CKEditorField
 
 class RegisterForm(FlaskForm):
     
@@ -33,7 +34,7 @@ class BlogForm(FlaskForm):
     title = StringField(label='Title', validators=[Length(min=2, max=20), DataRequired()])
     description = StringField("Description", validators=[Length(min=20, max=150), DataRequired()])
     # author = StringField(label='Email', validators=[Email(message="Email required"), DataRequired()])
-    content = StringField("Content", validators=[DataRequired()], widget=TextArea())
+    content = CKEditorField('Content', validators=[DataRequired()])   
     slug = StringField("Slug", validators=[DataRequired()])
     submit_btn_blog = SubmitField(label='Post blog')
 

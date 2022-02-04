@@ -31,6 +31,7 @@ block content%}
                     </a>
                 </strong>
             </h5>
+            <h6>Submitted by: {{blogpost.blog_author.username}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">
                 {{blogpost.description}}
             </h6>
@@ -40,11 +41,6 @@ block content%}
                     href="{{url_for('blogpost', id=blogpost.id)}}"
                     class="blogpost-link"
                     >View Post</a
-                >
-                <a
-                    href="{{url_for('edit_blogpost', id=blogpost.id)}}"
-                    class="blogpost-link"
-                    >Edit Post</a
                 >
             </div>
         </div>

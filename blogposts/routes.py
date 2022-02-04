@@ -95,7 +95,7 @@ def add_blog():
         blog_post = Blog(title=form.title.data, 
                             description = form.description.data, 
                             content=form.content.data,
-                            slug = form.slug.data
+                            slug = form.slug.data, author_id = current_user.id
                             )
         #clear the form after hiting submit button
         form.title.data = ''
