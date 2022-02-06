@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
 :root {
     --main-bg-color: #edc7b7;
@@ -14,9 +14,9 @@ body {
     margin: 0;
     box-sizing: border-box;
     /* background-color: var(--main-bg-color); */
-}
+} */
 
-#header-register,
+/* #header-register,
 #header-login {
     text-align: center;
     font-family: 'Fjalla One', sans-serif;
@@ -49,11 +49,11 @@ body {
     background-color: var(--main-bg);
     transition-duration: 0.4s;
     position: relative;
-    left: 28em;
+    left: 15em;
     border: none;
 }
 .submit-btn-register:hover,
 .submit-btn-login:hover {
     background-color: var(--main-shadow);
     color: (--bg-light);
-}
+}  */

@@ -105,7 +105,7 @@ def add_blog():
         blog_post = Blog(title=form.title.data, 
                             description = form.description.data, 
                             content=form.content.data,
-                            slug = form.slug.data, author_id = current_user.id,
+                            author_id = current_user.id,
                             # feature_img = request.files['feature_img'],
                             # feature_img_name = secure_filename(filename),
                             # unique_filename = str(uuid.uuid1()) + "_" + feature_img_name ,
@@ -116,7 +116,7 @@ def add_blog():
         form.title.data = ''
         form.description.data = ''
         form.content.data = ''
-        form.slug.data = ''
+    
 
         db.session.add(blog_post)
         db.session.commit()
@@ -159,7 +159,6 @@ def edit_blogpost(id):
         blogpost.title = form.title.data
         blogpost.description = form.description.data
         blogpost.content = form.content.data # error says that NULL constraint fails here
-        blogpost.slug = form.slug.data
         db.session.add(blogpost)
         db.session.commit() # error on line 117
         flash("Update successful")
@@ -170,7 +169,6 @@ def edit_blogpost(id):
     form.title.data = blogpost.title
     form.description.data = blogpost.description
     form.content.data = blogpost.content
-    form.slug.data = blogpost.slug
     return render_template('edit_blogpost.html', form=form)
  
    

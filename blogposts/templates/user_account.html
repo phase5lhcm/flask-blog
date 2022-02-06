@@ -1,10 +1,17 @@
 {% extends 'layout.html' %} {% block title%} User Account {% endblock%} {% block
 content%}
+<style>
+    body {
+        background-image: linear-gradient(
+                rgba(169, 169, 169, 0.45),
+                rgba(169, 169, 169, 0.45)
+            ),
+            url({{url_for('static', filename= 'assets/library.jpeg')}});
+    }
+</style>
 <div id="container-user-account">
     <h2>{{current_user.username}}</h2>
     <p>Introduction: {{current_user.introduction}}</p>
 </div>
-
-
 
 {%endblock%}

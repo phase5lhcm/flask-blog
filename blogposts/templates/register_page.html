@@ -1,9 +1,18 @@
 {% extends 'layout.html'%} {%block title%} Register Page {%endblock%} {% block
 content%}
 
+<style>
+    body {
+        background-image: linear-gradient(
+                rgba(169, 169, 169, 0.45),
+                rgba(169, 169, 169, 0.45)
+            ),
+            url({{url_for('static', filename= 'assets/library.jpeg')}});
+    }
+</style>
+
 <div class="container">
     <form id="register-form" method="POST">
-        <h3 id="header-register">Register</h3>
         {{form.hidden_tag()}} {{form.username.label()}}
         {{form.username(class="form-control", placeholder="Username")}}
         {{form.email.label()}} {{form.email(class="form-control",
@@ -12,9 +21,9 @@ content%}
         rows=2)}} {{form.password.label()}}
         {{form.password(class="form-control", placeholder="Password")}}
         {{form.password_confirmation.label()}}
-        {{form.password_confirmation(class="form-control", placeholder="Confirm
-        password")}} {{form.submit_btn_register(class="btn btn-lg btn-block
-        btn-primary submit-btn-register")}}
+        {{form.password_confirmation(class="form-control",
+        placeholder="Confirm")}} {{form.submit_btn_register(class="btn btn-lg
+        btn-block btn-primary submit-btn-register")}}
     </form>
 </div>
 

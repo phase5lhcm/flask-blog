@@ -1,6 +1,16 @@
 {% extends 'layout.html' %} {% block title%} Login page {% endblock%} {%block
 content%}
 
+<style>
+    body {
+        background-image: linear-gradient(
+                rgba(169, 169, 169, 0.45),
+                rgba(169, 169, 169, 0.45)
+            ),
+            url({{url_for('static', filename= 'assets/library.jpeg')}});
+    }
+</style>
+
 <form method="POST" id="login-form">
     <h3 id="header-login">Sign In</h3>
     {{form.hidden_tag()}}

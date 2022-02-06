@@ -22,7 +22,7 @@ class RegisterForm(FlaskForm):
     introduction = StringField(label='Introduction', validators=[DataRequired()], widget=TextArea())
     password = PasswordField(label='Password', validators=[Length(min=6), DataRequired()])
     password_confirmation = PasswordField(label='Confirm password', validators=[EqualTo('password'), DataRequired()])
-    submit_btn_register = SubmitField(label='Create Account')
+    submit_btn_register = SubmitField(label='Submit')
 
 class LoginForm(FlaskForm):     
     # username = StringField(label='Username', validators=[Length(min=2, max=20), DataRequired()])
@@ -35,7 +35,6 @@ class BlogForm(FlaskForm):
     description = StringField("Description", validators=[Length(min=20, max=150), DataRequired()])
     # author = StringField(label='Email', validators=[Email(message="Email required"), DataRequired()])
     content = CKEditorField('Content', validators=[DataRequired()])   
-    slug = StringField("Slug", validators=[DataRequired()])
     submit_btn_blog = SubmitField(label='Post blog')
     feature_img = FileField("Image")
 

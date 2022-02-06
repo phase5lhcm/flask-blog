@@ -1,18 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@600&family=Raleway:wght@300;500&display=swap');
 :root {
-    --main-bg-color: #edc7b7;
-    --bg-light: #eee2dc;
-    --bg-dark: #000000;
     --main-shadow: #e8e8e8;
-    --hover-light: #fff;
-    --main-bg: #ac3b69;
 }
 .form-control {
     border-radius: 8px;
     padding: 0.4rem;
     box-shadow: 1px 2px var(--main-shadow);
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 25px;
 }
+
+.form-container {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 35px;
+    font-weight: bolder;
+}
+
 h1 {
     text-align: center;
     margin: 2rem auto;
     width: 25%;
+    color: #ffffff;
+    font-size: 60px;
+}
+
+.submit-btn-blog {
+    margin-top: 12px;
 }

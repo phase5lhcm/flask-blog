@@ -1,46 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-:root {
-    --main-bg-color: #edc7b7;
-    --bg-light: #eee2dc;
-    --bg-dark: #000000;
-    --main-shadow: #e8e8e8;
-    --hover-light: #fff;
-    --main-bg: #ac3b69;
-}
-#blogpost-container {
-    position: relative;
-    left: 28rem;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@600&family=Raleway:wght@300;500&display=swap');
+
+#blogposts-container {
     border-radius: 30px;
     color: var(--main-bg);
     padding: 2em;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    color: #ffffff;
 }
 
-.blog-card {
-    background-color: #f0f0f0;
-}
-.fa-times {
+/* .fa-times {
     position: relative;
     left: 23rem;
-}
+} */
 
-#card-links {
-    margin-top: 2rem;
-}
-
-.blogpost-link,
-.blogpost-header {
+a {
     list-style: none;
     text-decoration: none;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
 }
 
-.blogpost-link:hover,
-.blogpost-header:hover {
-    background-color: #a9a9a9;
-    transition: 1s;
-}
-
-.blogpost-link {
-    padding: 1rem;
+.blog-item {
+    background-color: #14397d;
+    list-style: none;
+    width: 20vw;
+    margin: 0 auto;
 }

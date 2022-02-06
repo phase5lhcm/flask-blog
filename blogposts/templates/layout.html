@@ -40,12 +40,15 @@
             rel="stylesheet"
             href="{{ url_for('static', filename='styles/blog_posts_styles.css') }}"
         />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles/navbar_styles.css') }}"
+        />
         <title>{% block title%}{%endblock%}</title>
     </head>
     <body>
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <nav class="navbar navbar-expand-lg">
             <button
                 class="navbar-toggler"
                 type="button"
@@ -59,30 +62,25 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto home">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{url_for('home')}}">Home </a>
                     </li>
                 </ul>
                 {% if current_user.is_authenticated %}
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link">
                             <i class="fas fa-blog"></i>
                             {{current_user.free_posts}}
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#"
                             >Welcome back,{{current_user.username}}</a
                         >
-                    </li>
+                    </li> -->
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('logout')}}"
-                            >Logout</a
-                        >
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('add_blog')}}"
                             >Add Content</a
@@ -105,6 +103,11 @@
                             >Update Account</a
                         >
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('user_account')}}"
+                            >Account</a
+                        >
+                    </li>
                     {% if current_user.id == 1%}
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('administrator')}}"
@@ -125,26 +128,15 @@
                             >Register</a
                         >
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('user_account')}}"
-                            >Account</a
-                        >
-                    </li>
                 </ul>
-                {% endif %}
+                {% endif %} {% if current_user.is_authenticated%}
+                <li class="nav-item logout">
+                    <a class="nav-link" href="{{url_for('logout')}}"
+                        ><i class="fas fa-sign-out-alt"></i
+                    ></a>
+                </li>
+                {%endif%}
             </div>
-
-            <form action="{{url_for('search')}}" class="d-flex" method="POST">
-                {{form.hidden_tag()}}
-                <input
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    name="searched"
-                    class="form-control"
-                />
-                <button>Search</button>
-            </form>
         </nav>
         {% with messages = get_flashed_messages(with_categories=true)%} {% if
         messages%} {% for category, message in messages %}

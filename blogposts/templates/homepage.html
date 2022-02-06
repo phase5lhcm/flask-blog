@@ -1,62 +1,72 @@
 {% extends 'layout.html' %} {% block title%} Homepage {% endblock%} {% block
 content%}
 
-<div id="container-homepage">
-    <h1>Dev Share</h1>
-    <div id="cards">
-        <div id="card-main">
-            <div class="card" style="width: 26rem">
-                <img
-                    class="card-img-top card-main-img"
-                    src="{{url_for('static',
-        filename='assets/homepage_img.jpeg')}}"
-                    alt="Card image cap"
-                />
-                <div class="card-body">
-                    <h5 class="card-title">Welcome to DevShare</h5>
-                    <p class="card-text">
-                        At DevShare, Lorem ipsum dolor sit amet. Lorem ipsum
-                        dolor sit amet. Lorem ipsum dolor sit, amet consectetur
-                        adipisicing elit.
-                    </p>
-                    <a class="nav-link" href="{{url_for('register')}}"
-                        >Sign Up Now!</a
-                    >
-                </div>
-            </div>
-        </div>
+<style>
+    body {
+        background-image: linear-gradient(
+                rgba(169, 169, 169, 0.45),
+                rgba(169, 169, 169, 0.45)
+            ),
+            url({{url_for('static', filename= 'assets/library.jpeg')}});
+    }
+</style>
 
-        <div id="card-feature">
-            <div id="card1" class="card" style="width: 15rem">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Share your stories with other developers
-                    </h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Consequuntur perferendis culpa.
-                    </p>
-                    <a href="{{url_for('blogposts')}}" class="btn">See Posts</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 15rem">
-                <div id="card2" class="card-body">
-                    <strong
-                        ><h5 class="card-title">Real Experiences</h5></strong
-                    >
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit.
-                    </p>
-
-                    <a class="nav-link" href="{{url_for('user_list')}}"
-                        >DevProfiles</a
-                    >
-                </div>
-            </div>
+<div>
+    <div class="jumbotron jumbotron-fluid homepage">
+        <div class="container homepage">
+            <h1 class="display-4">Devcyclopedia</h1>
+            <p class="paragraph-text">
+                This is a modified jumbotron that occupies the entire horizontal
+                space of its parent. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsa officiis ratione error velit fuga, quidem
+                vero qui sint aliquid quia. Dolorum, fugiat est totam saepe ipsa
+                eaque laudantium amet pariatur. Beatae ipsum nobis dolorum
+                voluptas eum quo repudiandae delectus sequi sunt quas. Commodi
+                dolorem ad adipisci in at nostrum fugiat recusandae nulla
+                labore. Quam atque neque eveniet deleniti dolore reprehenderit.
+                Doloribus consequuntur unde non maiores necessitatibus
+                perspiciatis excepturi corrupti, quae rem, consectetur totam
+                voluptate facilis nihil dolorem natus quo, consequatur illo?
+                Impedit et omnis magnam adipisci expedita, saepe debitis sint!
+                In recusandae deserunt non voluptates veritatis cupiditate nam
+                praesentium temporibus cum mollitia nostrum perferendis rem vero
+                esse, optio quibusdam fugiat numquam reiciendis, distinctio
+                obcaecati? Est cupiditate expedita aliquid non ut. Hic aperiam
+                possimus, nobis ex quos dicta quibusdam architecto perferendis
+                suscipit illo quod. Temporibus soluta necessitatibus,
+                consequatur provident quibusdam facilis dolor quo mollitia nulla
+                nisi commodi cum deserunt laudantium. Explicabo! Impedit
+                necessitatibus, distinctio voluptates rem fugit tenetur ex natus
+                dolore sunt doloribus cumque qui sapiente cum quibusdam
+                molestiae animi fugiat. Officia consequatur alias, obcaecati
+                ipsam eum aperiam impedit asperiores provident. This is a
+                modified jumbotron that occupies the entire horizontal space of
+                its parent.
+            </p>
         </div>
     </div>
+    {% if current_user.is_authenticated%}
+    <form
+        action="{{url_for('search')}}"
+        class="d-flex search-form"
+        method="POST"
+        style="margin: auto; max-width: 300px"
+    >
+        {{form.hidden_tag()}}
+        <input
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="searched"
+            class="form-control"
+        />
+        <button><i class="fas fa-search"></i></button>
+    </form>
+    {% else%}
+    <div class="card">
+        <div class="card-body">This is some text within a card body.</div>
+    </div>
+    {% endif%}
 </div>
 
 {%endblock%}

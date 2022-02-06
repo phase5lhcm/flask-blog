@@ -1,7 +1,16 @@
 {% extends 'layout.html'%} {%block title%} Update Account Page {%endblock%} {%
 block content%}
+<style>
+    body {
+        background-image: linear-gradient(
+                rgba(169, 169, 169, 0.45),
+                rgba(169, 169, 169, 0.45)
+            ),
+            url({{url_for('static', filename= 'assets/library.jpeg')}});
+    }
+</style>
 
-<div class="container">
+<div class="container form-container">
     <form
         id="register-form"
         action="/update/user/{{update_user.id}}"

@@ -5,7 +5,7 @@ block content%}
     body {
         background-image: url({{url_for(
                 'static',
-                filename= 'assets/abstract-background.jpeg'
+                filename= 'assets/library.jpeg'
             )}});
     }
 </style>
@@ -15,36 +15,18 @@ block content%}
 
 {% for blogpost in blogposts%}
 
-<div id="blogpost-container">
-    <div class="card" style="width: 50rem">
-        <a href="{{url_for('delete_blog', id=blogpost.id)}}">
-            <i class="fas fa-times"></i
-        ></a>
-        <div class="card-body blog-card">
-            <h5 class="card-title">
-                <strong>
-                    <a
-                        href="{{url_for('blogpost', id=blogpost.id)}}"
-                        class="blogpost-header"
-                    >
-                        {{blogpost.title}}
-                    </a>
-                </strong>
-            </h5>
-            <h6>Submitted by: {{blogpost.blog_author.username}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">
-                {{blogpost.description}}
-            </h6>
-            {{blogpost.date_posted}} <br />
-            <div id="card-links">
-                <a
-                    href="{{url_for('blogpost', id=blogpost.id)}}"
-                    class="blogpost-link"
-                    >View Post</a
-                >
-            </div>
-        </div>
-    </div>
+<div id="blogposts-container">
+    <ul>
+        <li class="blog-item">
+            <a
+                href="{{url_for('blogpost', id=blogpost.id)}}"
+                class="blogpost-header"
+            >
+                {{blogpost.title}}
+            </a>
+            <h4>By: {{blogpost.blog_author.username}}</h4>
+        </li>
+    </ul>
 </div>
 
 {%endfor%} {%endblock%} <br />
