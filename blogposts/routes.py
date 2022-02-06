@@ -1,13 +1,14 @@
 from crypt import methods
 import mimetypes
 from unicodedata import name
+import uuid
 from blogposts import app
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.utils import secure_filename
 from flask_login import login_user, current_user, logout_user, login_required
 from blogposts.models import Blog, User, Image
 from blogposts import db
-from blogposts.forms import ImageForm, RegisterForm, LoginForm, BlogForm, ImageForm
+from blogposts.forms import ImageForm, RegisterForm, LoginForm, BlogForm, ImageForm, SearchForm
 #TODO - add logging info to file when used in production
 import logging
 logging.basicConfig(level=logging.DEBUG)
@@ -15,6 +16,15 @@ logging.basicConfig(level=logging.DEBUG)
 @app.route("/")
 def home():
     return render_template('homepage.html')
+
+@app.route("/admin-page")
+def administrator():
+    id = current_user.id
+    if id == 1:
+        return render_template('admin_page.html')
+    else:
+        flash('Not authorized')
+        return redirect(url_for('home'))
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -91,12 +101,17 @@ def update_user(id):
 def add_blog():
     form = BlogForm()
     # print(f"Blog form: {form.__dict__}")
-    if form.validate_on_submit():
+    if form.validate_on_submit() or request.method == "POST":
         blog_post = Blog(title=form.title.data, 
                             description = form.description.data, 
                             content=form.content.data,
-                            slug = form.slug.data, author_id = current_user.id
+                            slug = form.slug.data, author_id = current_user.id,
+                            # feature_img = request.files['feature_img'],
+                            # feature_img_name = secure_filename(filename),
+                            # unique_filename = str(uuid.uuid1()) + "_" + feature_img_name ,
+                            # feature_img = unique_filename
                             )
+                            
         #clear the form after hiting submit button
         form.title.data = ''
         form.description.data = ''
@@ -202,4 +217,25 @@ def img_upload():
 def user_list():
    user_accounts = User.query.order_by(User.username).all()
    return render_template('user_profiles.html', user_accounts=user_accounts )
+
+@app.context_processor
+def layout():
+    form = SearchForm()
+    return dict(form=form)
+
+@app.route('/search/', methods=["POST"])
+def search():
+    form = SearchForm()
+    blogs_searched = Blog.query
+    if form.validate_on_submit() and request.method == "POST":
+        blog_content = form.searched.data
+        blogs_searched = blogs_searched.filter(Blog.content.like('%' + blog_content + '%' ))
+        blogs_searched = blogs_searched.order_by(Blog.title).all()
+        return render_template('search.html', form=form, searched=blog_content, blogs_searched=blogs_searched)
+
+
+     
+   
+
+
    

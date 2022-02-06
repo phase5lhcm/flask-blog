@@ -17,7 +17,7 @@ class Blog(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
     author_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
     slug = db.Column(db.String(20))
-    # featured_img = db.Column(db.String,nullable=False)
+    # featured_img = db.Column(db.String,nullable=True)
     # author = db.relationship('User', backref=db.backref('user',lazy=True))
 
     def __repr__(self):
