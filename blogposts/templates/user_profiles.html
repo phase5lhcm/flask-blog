@@ -32,8 +32,28 @@ block content%}
             <div id="card-links">
                 <a href="#" class="blogpost-link">View Posts</a>
             </div>
+            <div class="profile-img-container row col-4">
+                <img
+                    src="{{url_for('static', filename='assets/default-user.png')}}"
+                    alt=""
+                />
+            </div>
         </div>
     </div>
+    <style>
+        .profile-img-container {
+            width: 100px;
+            height: 120px;
+            position: relative;
+            bottom: 6rem;
+        }
+
+        /* Resize images */
+        .profile-img-container img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </div>
 
 {%endfor%} {%endblock%} <br />

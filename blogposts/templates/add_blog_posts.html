@@ -6,7 +6,7 @@ content%} {{ ckeditor.load() }}
 </style>
 
 <div class="container">
-    <form id="add-blog-form" method="POST">
+    <form id="add-blog-form" method="POST" enctype="multipart/form-data">
         <h3 id="header-register">Post your blog!</h3>
         {{form.hidden_tag()}} {{form.title.label()}}
         {{form.title(class="form-control", placeholder="Title")}}
@@ -15,6 +15,8 @@ content%} {{ ckeditor.load() }}
         {{form.slug(class="blog-slug form-control", placeholder="Slug")}}
         {{form.content.label()}} {{form.content(class="form-control", rows=5)}}
         {{form.submit_btn_blog(class="btn btn-lg btn-block btn-primary
+        submit-btn-blog")}} {{form.feature_img.label()}}
+        {{form.feature_img(class="btn btn-lg btn-block btn-primary
         submit-btn-blog")}}
     </form>
     {{ ckeditor.load() }} {{ ckeditor.config(name='content') }}

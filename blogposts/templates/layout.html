@@ -133,6 +133,18 @@
                 </ul>
                 {% endif %}
             </div>
+
+            <form action="{{url_for('search')}}" class="d-flex" method="POST">
+                {{form.hidden_tag()}}
+                <input
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    name="searched"
+                    class="form-control"
+                />
+                <button>Search</button>
+            </form>
         </nav>
         {% with messages = get_flashed_messages(with_categories=true)%} {% if
         messages%} {% for category, message in messages %}

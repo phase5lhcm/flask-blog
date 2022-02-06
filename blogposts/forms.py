@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField,SubmitField
+from wtforms import StringField, PasswordField,SubmitField, FileField
 from wtforms.validators import Length, Email, EqualTo, DataRequired, ValidationError
 from wtforms.widgets import TextArea
 from blogposts.models import User
@@ -37,8 +37,13 @@ class BlogForm(FlaskForm):
     content = CKEditorField('Content', validators=[DataRequired()])   
     slug = StringField("Slug", validators=[DataRequired()])
     submit_btn_blog = SubmitField(label='Post blog')
+    feature_img = FileField("Image")
 
 class ImageForm(FlaskForm):     
     name = StringField(label='Title', validators=[ DataRequired()])
     submit_btn_img = SubmitField(label='Submit')
+
+class SearchForm(FlaskForm):     
+    searched = StringField(label='Searched', validators=[ DataRequired()])
+    submit_btn_search = SubmitField(label='Submit')
 
