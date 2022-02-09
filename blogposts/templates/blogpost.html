@@ -11,20 +11,16 @@ content%}
     }
 </style>
 
-<h1>Blogpost Content</h1>
+<h1>{{blogpost.title}}</h1>
 <br />
+<div class="blogpost-full">
+    <h6 class="blog-description">{{blogpost.description}}</h6>
+    <p>{{ moment(blogpost.date_posted).format('LLL') }}</p>
+    <p>{{blogpost.content|safe}}</p>
+    <a href="{{url_for('blogposts')}}"> Back</a>
 
-<div class="card" style="width: 18rem">
-    <div class="card-body">
-        <h5 class="card-title">{{blogpost.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{blogpost.description}}</h6>
-        {{blogpost.date_posted}}
-        <p>{{blogpost.content|safe}}</p>
-        <a href="{{url_for('blogposts')}}"> Back</a>
-    </div>
+    <h2></h2>
+    <br />
+
+    {%endblock%}
 </div>
-
-<h2></h2>
-<br />
-
-{%endblock%}

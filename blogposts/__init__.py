@@ -5,6 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_ckeditor import CKEditor
 from werkzeug.utils import secure_filename
 import uuid as uuid
+from flask_moment import Moment
 import os
 
 app = Flask(__name__)
@@ -16,5 +17,6 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
 login_manager.login_message_category = "info"
+moment = Moment(app)
 
 from blogposts import routes

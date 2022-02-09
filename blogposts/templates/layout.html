@@ -151,7 +151,8 @@
             </button>
             {{message}}
         </div>
-        {%endfor%} {% endif %} {% endwith %} {%block content%} {% endblock %}
+        {%endfor%} {% endif %} {% endwith %} {%block content%} {{ super() }} {{
+        moment.include_moment() }} {% endblock %}
         <!--Content goes here-->
 
         <!-- Use option 2 as option 1 bundle does not trigger modal  -->

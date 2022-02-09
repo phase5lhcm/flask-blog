@@ -19,8 +19,19 @@ class Blog(db.Model):
     # featured_img = db.Column(db.String,nullable=True)
     # author = db.relationship('User', backref=db.backref('user',lazy=True))
 
+    # @property
+    # def date_posted(self):
+    #     return self.date_posted
+
     def __repr__(self):
-        return '<Blog Post Title %r>' % self.title
+        return 'Post Title: %r' % self.title
+
+
+    # @date_posted.setter
+    # def date_format(self, blog_date): 
+    #      self.date_posted = blog_date.strftime("%b %d %Y %H:%M:%S")
+    #      return '<Date %r>' & self.date_posted
+       
 
 
 class User(db.Model, UserMixin):

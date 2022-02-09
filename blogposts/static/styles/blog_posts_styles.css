@@ -28,3 +28,9 @@ a {
     width: 20vw;
     margin: 0 auto;
 }
+
+.blogpost-full {
+    text-align: center;
+    color: white;
+    background-color: #14397d;
+}

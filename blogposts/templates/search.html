@@ -1,9 +1,22 @@
 {% extends 'layout.html' %} {% block title%} Search {% endblock%} {% block
 content%}
 
-<br />
-<h2>Search records</h2>
-{{searched}}
+<style>
+    body {
+        background-image: linear-gradient(
+                rgba(169, 169, 169, 0.45),
+                rgba(169, 169, 169, 0.45)
+            ),
+            url({{url_for('static', filename= 'assets/library.jpeg')}});
+    }
+</style>
 
 <br />
-{{blogs_searched}} {%endblock%}
+<div id="blogposts-container">
+    <h2>Search records</h2>
+    <p>{{searched}}</p>
+
+    <br />
+    <h2>{{blogs_searched}}</h2>
+</div>
+{%endblock%}
